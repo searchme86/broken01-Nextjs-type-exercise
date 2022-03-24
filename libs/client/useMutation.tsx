@@ -4,16 +4,11 @@ interface UseMutationState {
   data?: object;
   error?: object;
 }
-interface IUseState {
-  loading: boolean;
-  data: undefined | any;
-  error: undefined | any;
-}
 
 type UseMutationResult = [(data: any) => void, UseMutationState];
 
 export default function useMutation(url: string): UseMutationResult {
-  const [state, setState] = useState<IUseState>({
+  const [state, setState] = useState<UseMutationState>({
     loading: false,
     data: undefined,
     error: undefined,
@@ -29,28 +24,15 @@ export default function useMutation(url: string): UseMutationResult {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json().catch(() => {}))
-      .then((json) =>
-        setState({
-          ...state,
-          data: json,
-        })
-      )
-      .catch((error) =>
-        setState({
-          ...state,
-          error,
-        })
-      )
-      .finally(() =>
-        setState({
-          ...state,
-          loading: false,
-        })
-      );
+      .then((data) => setState((prev) => ({ ...prev, data })))
+
+      .catch((error) => setState((prev) => ({ ...prev, error })))
+      .finally(() => setState((prev) => ({ ...prev, loading: false })));
   }
-  return [mutation, { loading: false, data: undefined, error: undefined }];
+
+  return [mutation, { ...state }];
 }
