@@ -47,7 +47,6 @@ async function handler(
     // });
     // console.log(email);
   }
-  console.log('on test', req.body);
   return res.json({
     ok: true,
   });
