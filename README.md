@@ -6,6 +6,6 @@ branch: restart/model
 
 - codes in branch, setup/model have been broken, which is why rebuild of it
 
-History check
+🚑 History check
 
-- 3/25 7:79 auth, phone, emial works well
+- #11.1, auth(phone, email) works well
