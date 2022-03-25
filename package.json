@@ -15,6 +15,7 @@
     "next": "^12.1.0",
     "react": "^18.0.0-rc.2",
     "react-dom": "^18.0.0-rc.2",
+    "swr": "^1.2.2",
     "twilio": "^3.76.0"
   },
   "devDependencies": {
