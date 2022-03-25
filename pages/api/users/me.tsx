@@ -26,4 +26,4 @@ async function handler(
 //   password: process.env.COOKIE_PASSWORD!,
 // });
 
-export default withApiSession(withHandler('GET', handler));
+export default withApiSession(withHandler({ method: 'GET', handler }));
