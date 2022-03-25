@@ -54,4 +54,4 @@ async function handler(
     ok: true,
   });
 }
-export default withHandler('POST', handler);
+export default withHandler({ method: 'POST', handler, isPrivate: false });
