@@ -1,3 +1,3 @@
 ## Nextjs-type-clone: Nomad-carrot projects
 
-### codes broken
+### codes has been broken
